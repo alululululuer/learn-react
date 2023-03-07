@@ -1,0 +1,182 @@
+:root {
+  --clr-primary: #ec4141;
+
+  --clr-neutral-400: #ffffff;
+  --clr-neutral-500: #fafafa;
+  --clr-neutral-600: #999999;
+  --clr-neutral-700: #323232;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* general styles */
+body {
+  font-family: sans-serif;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+main {
+  padding: 3rem 10%;
+  display: grid;
+  gap: 2rem;
+}
+
+/* rankinglist styles */
+.rankinglist {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .rankinglist {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr min-content;
+    row-gap: 0.5rem;
+    column-gap: 1.5rem;
+  }
+}
+
+.rankinglist__img {
+  align-self: center;
+  width: 13rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.rankinglist__img img {
+  object-fit: contain;
+}
+
+.rankinglist__updatetime {
+  position: absolute;
+  left: 50%;
+  bottom: 25%;
+  transform: translateX(-50%);
+  color: var(--clr-neutral-400);
+  font-size: 0.8rem;
+}
+
+.rankinglist__link {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  color: var(--clr-neutral-600);
+  text-decoration: none;
+}
+
+.rankinglist__link:hover {
+  color: var(--clr-neutral-700);
+}
+/* track styles */
+.track {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.track:nth-child(odd) {
+  background-color: var(--clr-neutral-500);
+}
+
+.track:nth-child(-n + 3) .track__number {
+  color: var(--clr-primary);
+}
+
+.track__number {
+  color: var(--clr-neutral-600);
+}
+
+.track__name {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--clr-neutral-700);
+}
+
+.track__artists {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.artist {
+  text-decoration: none;
+  color: var(--clr-neutral-600);
+  font-size: 0.8rem;
+
+  display: flex;
+  gap: 0.25rem;
+}
+
+.artist:hover {
+  text-decoration: underline;
+  color: var(--clr-neutral-700);
+}
+
+.artist:not(:last-child)::after {
+  content: "/";
+  display: block;
+}
